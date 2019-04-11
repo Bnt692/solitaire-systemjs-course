@@ -28,7 +28,7 @@ node {
 }
 
 // demoing a second agent
-node('mac') {
+node {
     // on windows use: bat 'dir'
     sh 'ls'
 
@@ -39,16 +39,6 @@ node('mac') {
 
     // on windows use: bat 'dir'
     sh 'ls'
-}
-
-//parallel integration testing
-stage 'Browser Testing'
-parallel chrome: {
-    runTests("Chrome")
-}, firefox: {
-    runTests("Firefox")
-}, safari: {
-    runTests("Safari")
 }
 
 def runTests(browser) {
